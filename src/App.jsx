@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./Component/Loginpage"; // Import the LoginPage component
 import LandingPage from "./Component/Landingpage";
 import FarmerPage from "./Component/Farmerpage";
+import AdminDashboard from "./component/AdminDashboard";
 
 function App() {
   return (
