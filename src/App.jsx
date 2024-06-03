@@ -1,10 +1,10 @@
-
 import LoginPage from "./Component/Loginpage"; // Import the LoginPage component
+import WorldMap from "./Component/WorldMap"; // Import the WorldMap component
 
 function App() {
   return (
     <>
-      <LoginPage /> {/* Include the LoginPage component */}
+      <WorldMap /> {/* Include the LoginPage component */}
     </>
   );
 }
