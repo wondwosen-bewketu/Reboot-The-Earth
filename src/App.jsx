@@ -1,23 +1,15 @@
+import LoginPage from "./component/Loginpage"; // Import the LoginPage component
+import LandingPage from "./component/LandingPage";
+import AdminDashboard from "./component/AdminDashboard";
 
-import LoginPage from "./Component/Loginpage"; // Import the LoginPage component
-import MapComponent from "./Component/selectLocation"
-import { Routes, Route } from "react-router-dom";
-import { BrowserRouter } from 'react-router-dom';
-import Modal from 'react-modal';
+import LoginPage from "./Component/LandingPagee"; // Import the LoginPage component
 
-// Bind modal to the app root
-Modal.setAppElement('#root');
 function App() {
   return (
     <>
-     <BrowserRouter>
-        <div className="App">
-        <Routes>
-          <Route path="/" element={<LoginPage/>}/>
-          <Route path="/home" element={<MapComponent />}/>
-        </Routes>
-        </div>
-      </BrowserRouter>
+      {/* <LoginPage /> */}
+      {/* <LandingPage /> */}
+      <AdminDashboard />
     </>
   );
 }
