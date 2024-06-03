@@ -9,7 +9,7 @@ import CloudQueueIcon from "@mui/icons-material/CloudQueue";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import WaterDamageIcon from "@mui/icons-material/WaterDamage";
 
-const UserPage = () => {
+const FarmerPage = () => {
   // Dummy data for weather, soil condition, climate data, crop performance
   const weatherData = {
     temperature: 25,
@@ -274,4 +274,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default FarmerPage;
