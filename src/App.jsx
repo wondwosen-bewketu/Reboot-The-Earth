@@ -1,17 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Navbar from "./components/Navbar";
+import LoginPage from "./component/Loginpage"; // Import the LoginPage component
+import LandingPage from "./component/LandingPage";
 
 function App() {
   return (
-    <Router>
-      {/* <Navbar /> */}
-      <Routes>
-        <Route path="/" element={<Loging />} />
-      </Routes>
-    </Router>
+    <>
+      <LoginPage />
+      <LandingPage />
+    </>
   );
 }
 
