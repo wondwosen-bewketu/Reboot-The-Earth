@@ -1,11 +1,16 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./Component/Loginpage"; // Import the LoginPage component
-import WorldMap from "./Component/WorldMap"; // Import the WorldMap component
+import LandingPage from "./Component/Landingpage";
 
 function App() {
   return (
-    <>
-      <WorldMap /> {/* Include the LoginPage component */}
-    </>
+    <Router>
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
 
