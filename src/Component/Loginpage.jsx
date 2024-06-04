@@ -1,8 +1,44 @@
-import { TEInput, TERipple } from "tw-elements-react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Logo from "../assets/branding.png";
 import facebookLogo from "../assets/Facebook.png";
 import googleLogo from "../assets/Google.png";
-import Logo from "../assets/branding.png";
+import { TEInput, TERipple } from "tw-elements-react";
+
 export default function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    console.log("Username:", username); // Debugging statement
+    if (username === "admin") {
+      console.log("Navigating to /admin"); // Debugging statement
+      navigate("/admin");
+    } else if (username === "govt") {
+      console.log("Navigating to /govt"); // Debugging statement
+      navigate("/govt");
+    } else if (username === "farmer") {
+      console.log("Navigating to /farmer"); // Debugging statement
+      navigate("/farmer");
+    } else {
+      alert("Invalid username!");
+    }
+
+    // Reset input fields
+    setUsername("");
+    setPassword("");
+  };
+
+  const handleUsernameChange = (e) => {
+    console.log("e: ",e.target.value)
+    setUsername(e.target.value);
+  };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -14,20 +50,22 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <div className="space-y-6">
             <div>
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Email address
+                Username
               </label>
               <div className="mt-2">
                 <TEInput
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
+                  id="username"
+                  name="username"
+                  type="text"
+                  value={username}
+                  onChange={handleUsernameChange}
+                  autoComplete="username"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
@@ -49,6 +87,8 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   type="password"
+                  value={password}
+                  onChange={handlePasswordChange}
                   autoComplete="current-password"
                   required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -78,15 +118,17 @@ export default function LoginPage() {
 
             <div>
               <TERipple rippleColor="light" className="w-full">
-                <button
-                  type="submit"
+                
+              </TERipple>
+              <button
+                  type="button"
+                  onClick={handleSignIn}
                   className="flex w-full justify-center rounded-md bg-[#187b1b] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#187b1b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
                 >
                   Sign in
                 </button>
-              </TERipple>
             </div>
-          </form>
+          </div>
 
           <div className="mt-6">
             <div className="relative">
@@ -104,13 +146,13 @@ export default function LoginPage() {
               <TERipple rippleColor="light">
                 <button
                   type="button"
-                  className="inline-flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  className="inline-flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm
+                  ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
                   <img
                     className="h-5 mr-2"
                     src={googleLogo}
                     alt="Google Logo"
-                   
                   />
                   <p>Google</p>
                 </button>
@@ -120,12 +162,7 @@ export default function LoginPage() {
                   type="button"
                   className="inline-flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
-                  <img
-                    className="h-5"
-                    src={facebookLogo}
-                    alt="Facebook Logo"
-                    
-                  />
+                  <img className="h-5" src={facebookLogo} alt="Facebook Logo" />
                   <p>Facebook</p>
                 </button>
               </TERipple>

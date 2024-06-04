@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useHistory } from "react-router-dom"; // Import useHistory hook
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 const borena = {
   lat: 4.90521907547366,
@@ -34,7 +34,7 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
 const MapComponent = () => {
   const [markers, setMarkers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const history = useHistory(); // Initialize useHistory
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const addMarker = (e) => {
     const newMarker = {
@@ -52,7 +52,8 @@ const MapComponent = () => {
     );
     console.log("distance: ", distance);
 
-    if (distance <= 10) {
+    if (distance <= 50) {
+      navigate("/detail"); // Navigate to "/farmer"
       setIsModalOpen(true);
     }
 
@@ -67,7 +68,7 @@ const MapComponent = () => {
   };
 
   const navigateToFarmer = () => {
-    history.push("/farmer");
+    navigate("/farmer"); // Navigate to "/farmer"
   };
   return (
     <div>

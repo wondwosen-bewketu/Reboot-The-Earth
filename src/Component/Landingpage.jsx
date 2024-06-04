@@ -1,5 +1,5 @@
 import { useState } from "react";
-import{Link}from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 export default function LandingPage() {
@@ -25,7 +25,7 @@ export default function LandingPage() {
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
-            to="/login"
+              to="/login"
               className="rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
             >
               Login <span aria-hidden="true">→</span>
