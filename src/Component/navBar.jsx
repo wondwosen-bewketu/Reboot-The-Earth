@@ -11,7 +11,7 @@ export default function NavBar() {
   return (
     <>
       {/* Main header start */}
-      <header className="bg-green-600 shadow sticky top-0 z-50 h-20">
+      <header className="bg-white shadow sticky top-0 z-50 h-20">
         <div className="container mx-auto flex justify-between items-center">
           <a className="flex items-center" href="/">
             <img
@@ -24,7 +24,7 @@ export default function NavBar() {
             <i
               className={`fa ${
                 isOpen ? "fa-close" : "fa-bars"
-              } w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300`}
+              } w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300`}
             ></i>
           </button>
           <nav className="hidden lg:flex lg:items-center w-full lg:w-auto">
@@ -32,7 +32,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Home
                 </a>
@@ -40,7 +40,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/service"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Service
                 </a>
@@ -48,7 +48,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/package"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Package
                 </a>
@@ -56,7 +56,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/role"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Role
                 </a>
@@ -64,7 +64,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/steps"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Steps
                 </a>
@@ -72,7 +72,7 @@ export default function NavBar() {
               <li className="py-2 lg:py-0">
                 <a
                   href="/contact"
-                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-white font-semibold mt-2 transition-colors duration-300"
+                  className="block w-fit rounded-md px-4 py-2 hover:bg-[#187b1b] text-black font-semibold mt-2 transition-colors duration-300"
                 >
                   Contact
                 </a>

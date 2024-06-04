@@ -5,7 +5,7 @@ import UserDashboard from "./Component/UserDashboard";
 import FarmerPage from "./Component/Farmerpage";
 import SelectLocation from "./Component/selectLocation";
 import DetailPage from "./Component/DetailPage";
-import Navbar from "./Component/navBar";
+import Navbar from "./Component/NavBar";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
