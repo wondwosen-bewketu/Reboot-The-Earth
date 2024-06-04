@@ -2,15 +2,14 @@ import { useState } from "react";
 import { Button, Modal, Box, TextField, Typography } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import GrainIcon from "@mui/icons-material/Grain";
-import OpacityIcon from "@mui/icons-material/Opacity";
-import CloudQueueIcon from "@mui/icons-material/CloudQueue";
-import ReportProblemIcon from "@mui/icons-material/ReportProblem";
-import WaterDamageIcon from "@mui/icons-material/WaterDamage";
+import { WiDaySunny } from "react-icons/wi";
+import { GiCorn } from "react-icons/gi";
+import { FaWater } from "react-icons/fa";
+import { WiCloud } from "react-icons/wi";
+import { MdReportProblem } from "react-icons/md";
+import { MdOutlineFlood } from "react-icons/md";
 
-const UserPage = () => {
-  // Dummy data for weather, soil condition, climate data, crop performance
+const FarmerPage = () => {
   const weatherData = {
     temperature: 25,
     humidity: 70,
@@ -74,15 +73,12 @@ const UserPage = () => {
 
   const handlePayment = () => {
     setLoading(true);
-    // Simulate payment processing
     setTimeout(() => {
-      // Simulate fetching drought forecast and flooding details
       setPaymentProcessed(true);
       setPaymentInfo("Payment processed successfully.");
       toast.success("Payment submitted successfully!", {
         position: toast.POSITION.TOP_RIGHT,
       });
-
       setLoading(false);
     }, 2000);
   };
@@ -99,131 +95,102 @@ const UserPage = () => {
   };
 
   return (
-    <div
-      className="container mx-auto py-8"
-      style={{ fontFamily: "Arial, sans-serif" }}
-    >
+    <div className="container mx-auto py-8">
       <Typography
         variant="h3"
-        className="text-center mb-8"
-        style={{ fontWeight: "bold", color: "#333" }}
+        className="text-center mb-8 font-bold text-gray-800"
       >
-        User Dashboard
+        Usefull Climatic Informations For You
       </Typography>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Weather */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <WbSunnyIcon style={{ marginRight: 8 }} /> Weather
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <WiDaySunny className="text-6xl text-yellow-500" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Weather
           </Typography>
-          <p>Temperature: {weatherData.temperature}°C</p>
-          <p>Humidity: {weatherData.humidity}%</p>
-          <p>Description: {weatherData.description}</p>
+          <p className="text-center">Temperature: {weatherData.temperature}°C</p>
+          <p className="text-center">Humidity: {weatherData.humidity}%</p>
+          <p className="text-center">Description: {weatherData.description}</p>
         </div>
         {/* Soil Condition */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <OpacityIcon style={{ marginRight: 8 }} /> Soil Condition
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <FaWater className="text-6xl text-blue-500" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Soil Condition
           </Typography>
-          <p>pH: {soilConditionData.pH}</p>
-          <p>Moisture: {soilConditionData.moisture}</p>
-          <p>Texture: {soilConditionData.texture}</p>
+          <p className="text-center">pH: {soilConditionData.pH}</p>
+          <p className="text-center">Moisture: {soilConditionData.moisture}</p>
+          <p className="text-center">Texture: {soilConditionData.texture}</p>
         </div>
         {/* Climate Data */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <CloudQueueIcon style={{ marginRight: 8 }} /> Climate Data
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <WiCloud className="text-6xl text-gray-500" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Climate Data
           </Typography>
           {climateData.map((data, index) => (
-            <div key={index} className="mb-2">
-              <span>{data.status}:</span> {data.description}
+            <div key={index} className="text-center">
+              <p>{data.status}</p>
             </div>
           ))}
         </div>
         {/* Drought Forecast */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <ReportProblemIcon style={{ marginRight: 8 }} /> Drought Forecast
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <MdReportProblem className="text-6xl text-red-500" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Drought Forecast
           </Typography>
-          <p>{droughtForecast.forecast1}</p>
-          <p>{droughtForecast.forecast2}</p>
-          <p>{droughtForecast.forecast3}</p>
-          <p>{droughtForecast.forecast4}</p>
+          <p className="text-center">{droughtForecast.forecast1}</p>
+          <p className="text-center">{droughtForecast.forecast2}</p>
+          <p className="text-center">{droughtForecast.forecast3}</p>
+          <p className="text-center">{droughtForecast.forecast4}</p>
         </div>
         {/* Flooding Details */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <WaterDamageIcon style={{ marginRight: 8 }} /> Flooding Details
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <MdOutlineFlood  className="text-6xl text-blue-700" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Flooding Details
           </Typography>
-          <p>{floodingDetails.detail1}</p>
-          <p>{floodingDetails.detail2}</p>
-          <p>{floodingDetails.detail3}</p>
-          <p>{floodingDetails.detail4}</p>
+          <p className="text-center">{floodingDetails.detail1}</p>
+          <p className="text-center">{floodingDetails.detail2}</p>
+          <p className="text-center">{floodingDetails.detail3}</p>
+          <p className="text-center">{floodingDetails.detail4}</p>
         </div>
         {/* Crop Performance */}
-        <div className="bg-white p-6 rounded-lg shadow-md relative hover:shadow-lg transition-all duration-300">
-          <Typography
-            variant="h6"
-            className="mb-4"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <GrainIcon style={{ marginRight: 8 }} /> Crop Performance
+        <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <div className="flex justify-center mb-4">
+            <GiCorn className="text-6xl text-green-500" />
+          </div>
+          <Typography variant="h6" className="mb-2 font-semibold text-center">
+            Crop Performance
           </Typography>
-          <p>Yield: {cropPerformanceData.yield}</p>
-          <p>Pest Risk: {cropPerformanceData.pestRisk}</p>
-          <p>Disease Risk: {cropPerformanceData.diseaseRisk}</p>
+          <p className="text-center">Yield: {cropPerformanceData.yield}</p>
+          <p className="text-center">Pest Risk: {cropPerformanceData.pestRisk}</p>
+          <p className="text-center">Disease Risk: {cropPerformanceData.diseaseRisk}</p>
         </div>
       </div>
 
       <Button
         variant="contained"
         onClick={handleOpen}
-        className="mt-4"
-        style={{
-          backgroundColor: "#4caf50",
-          color: "white",
-          padding: "10px 20px",
-          fontSize: "16px",
-          borderRadius: "8px",
-        }}
-        onMouseOver={(e) => (e.target.style.backgroundColor = "#388e3c")}
-        onMouseOut={(e) => (e.target.style.backgroundColor = "#4caf50")}
+        className="mt-4 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg text-lg"
       >
         For more information
       </Button>
       <Modal open={open} onClose={handleClose}>
         <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 400,
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            borderRadius: 2,
-          }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 bg-white p-6 rounded-lg shadow-lg"
         >
           {!paymentProcessed ? (
             <>
@@ -243,17 +210,8 @@ const UserPage = () => {
               <Button
                 variant="contained"
                 onClick={handlePayment}
-                style={{
-                  backgroundColor: "#4caf50",
-                  color: "white",
-                  padding: "10px 20px",
-                  fontSize: "16px",
-                  borderRadius: "8px",
-                }}
-                onMouseOver={(e) =>
-                  (e.target.style.backgroundColor = "#388e3c")
-                }
-                onMouseOut={(e) => (e.target.style.backgroundColor = "#4caf50")}
+                className={`bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg text-lg ${loading ? "opacity-50" : ""
+                  }`}
                 disabled={loading}
               >
                 {loading ? "Loading..." : "Pay and Get Details"}
@@ -274,4 +232,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default FarmerPage;
