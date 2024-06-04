@@ -1,10 +1,48 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+
+// English translations
+const enTranslations = {
+  menu: {
+    login: "Login",
+    closeMenu: "Close menu",
+  },
+  header: {
+    title: "Data to tackle Drought Issues",
+    subtitle:
+      "Discover how cutting-edge data analytics empower farmers and policymakers to mitigate the impact of drought on agricultural productivity, ensuring food security and sustainability.",
+    getStarted: "Get started",
+    learnMore: "Learn more",
+  },
+};
+
+// French translations
+const frTranslations = {
+  menu: {
+    login: "Se connecter",
+    closeMenu: "Fermer le menu",
+  },
+  header: {
+    title: "Données pour lutter contre les problèmes de sécheresse",
+    subtitle:
+      "Découvrez comment l'analyse de données de pointe permet aux agriculteurs et aux décideurs de réduire l'impact de la sécheresse sur la productivité agricole, garantissant la sécurité alimentaire et la durabilité.",
+    getStarted: "Commencer",
+    learnMore: "En savoir plus",
+  },
+};
 
 export default function LandingPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [locale, setLocale] = useState("en"); // Default to English
+
+  const translations = {
+    en: enTranslations,
+    fr: frTranslations,
+  };
+
+  const toggleLocale = () => {
+    setLocale(locale === "en" ? "fr" : "en");
+  };
 
   return (
     <div className="bg-[url('https://wfi-water.com/wp-content/uploads/2023/01/Depositphotos_30828375_L-1.jpg')] bg-cover bg-center min-h-screen">
@@ -24,78 +62,77 @@ export default function LandingPage() {
             </button>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              to="/login"
-              className="rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
-            >
-              Login <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </nav>
-        <Dialog
-          className="lg:hidden"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-        >
-          <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-10 w-auto"
-                  src="../assets/2-removebg-preview.png"
-                  alt=""
-                />
-              </a>
+            <div className="mr-4">
+              {" "}
+              {/* Add padding to the right */}
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={toggleLocale}
+                className="rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
               >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                {locale === "en" ? "Français" : "English"}
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+            <div>
+              <Link
+                to="/login"
+                className="flex items-center rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
+              >
+                {translations[locale].menu.login}
+                <span className="ml-1">
+                  {" "}
+                  {/* Add space between button text and icon */}
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Log in
-                  </a>
-                </div>
-              </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </span>
+              </Link>
             </div>
-          </DialogPanel>
-        </Dialog>
+          </div>
+        </nav>
       </header>
 
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              Data to tackle Drought Issues
+              {locale === "en"
+                ? enTranslations.header.title
+                : frTranslations.header.title}
             </h1>
             <p className="mt-6 text-lg leading-8 text-[#fafafa]">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-              lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-              fugiat aliqua.
+              {locale === "en"
+                ? enTranslations.header.subtitle
+                : frTranslations.header.subtitle}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
                 className="rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
               >
-                Get started
+                {locale === "en"
+                  ? enTranslations.header.getStarted
+                  : frTranslations.header.getStarted}
               </a>
               <a
                 href="#"
                 className="text-sm font-semibold leading-6 text-white"
               >
-                Learn more <span aria-hidden="true">→</span>
+                {locale === "en"
+                  ? enTranslations.header.learnMore
+                  : frTranslations.header.learnMore}{" "}
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

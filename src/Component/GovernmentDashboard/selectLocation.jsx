@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -7,7 +7,6 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook

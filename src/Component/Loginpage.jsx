@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/branding.png";
 import facebookLogo from "../assets/Facebook.png";
@@ -163,7 +163,6 @@ export default function LoginPage() {
                   type="button"
                   className="inline-flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                 >
-                  <img className="h-5" src={facebookLogo} alt="Facebook Logo" />
                   <img className="h-5" src={facebookLogo} alt="Facebook Logo" />
                   <p>Facebook</p>
                 </button>

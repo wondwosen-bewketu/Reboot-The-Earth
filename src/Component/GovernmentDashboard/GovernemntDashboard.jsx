@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import Logo from "../assets/branding-accent.png";
+// import Logo from "../../assets/branding-accent";
 import {
   Disclosure,
   DisclosureButton,
@@ -11,7 +10,7 @@ import {
   Transition,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import FarmerPage from "../Component/Farmerpage";
+import MapComponent from "./selectLocation";
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -35,7 +34,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function UserDashboard() {
+export default function GovernmentDashboard() {
   return (
     <>
       {/*
@@ -54,11 +53,11 @@ export default function UserDashboard() {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
+                      {/* <img
                         className="h-20 w-auto"
                         src={Logo}
                         alt="Your Company"
-                      />
+                      /> */}
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
@@ -250,7 +249,7 @@ export default function UserDashboard() {
         </header>
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <FarmerPage />
+            <MapComponent />
           </div>
         </main>
       </div>

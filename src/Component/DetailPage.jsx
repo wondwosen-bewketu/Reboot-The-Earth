@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import GrainIcon from "@mui/icons-material/Grain";
