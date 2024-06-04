@@ -1,13 +1,14 @@
 import { useState } from "react";
-import{Link}from "react-router-dom"
+import { Link } from "react-router-dom";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-[url('https://wfi-water.com/wp-content/uploads/2023/01/Depositphotos_30828375_L-1.jpg')] bg-cover bg-center min-h-screen">
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="inset-x-0 top-0">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
           aria-label="Global"
@@ -22,10 +23,9 @@ export default function LandingPage() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
-            to="/login"
+              to="/login"
               className="rounded-md bg-[#187b1b] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#145f16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#187b1b]"
             >
               Login <span aria-hidden="true">→</span>
@@ -91,7 +91,6 @@ export default function LandingPage() {
               >
                 Get started
               </a>
-
               <a
                 href="#"
                 className="text-sm font-semibold leading-6 text-white"

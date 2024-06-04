@@ -1,4 +1,6 @@
-(function () {
+import React from 'react';
+
+function AdminDashboard() {
   var svg;
 
   //save off default references
@@ -4341,4 +4343,6 @@
       return this;
     };
   }
-})();
+}
+
+export default AdminDashboard;
