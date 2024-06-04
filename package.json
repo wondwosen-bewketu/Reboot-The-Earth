@@ -10,29 +10,25 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "bootstrap": "^5.3.3",
-    "leaflet": "^1.9.4",
-=======
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",
->>>>>>> b505f3aa3c88947dd904124802d8d8ce9f57e828
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
+    "bootstrap": "^5.3.3",
     "d3": "^7.9.0",
     "datamaps": "^0.5.9",
+    "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-maps": "^9.4.5",
     "react-leaflet": "^4.2.1",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.1",
-    "reactstrap": "^9.2.2",
-    "react-google-maps": "^9.4.5",
-    "react-router-dom": "^6.23.1",
     "react-simple-maps": "^3.0.0",
     "react-toastify": "^10.0.5",
+    "reactstrap": "^9.2.2",
     "topojson": "^3.0.2",
     "tw-elements-react": "^1.0.0-alpha-end"
   },
